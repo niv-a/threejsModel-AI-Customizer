@@ -55,6 +55,7 @@ const Customizer = () => {
     if (!prompt) return alert("Please enter a prompt");
 
     try {
+      //call our backend to create ai
       setGeneratingImg(true);
 
       const response = await fetch("http://localhost:8080/api/v1/dalle", {
