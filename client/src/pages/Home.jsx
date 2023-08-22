@@ -1,15 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useSnapshot } from "valtio";
+
 import state from "../store";
 import { CustomButton } from "../components";
-
 import {
   headContainerAnimation,
   headContentAnimation,
+  headTextAnimation,
   slideAnimation,
 } from "../config/motion";
-
-import React from "react";
 
 const Home = () => {
   const snap = useSnapshot(state);
@@ -21,32 +20,32 @@ const Home = () => {
           <motion.header {...slideAnimation("down")}>
             <img
               src="./threejs.png"
-              alt="logo "
+              alt="logo"
               className="w-8 h-8 object-contain"
-            ></img>
+            />
           </motion.header>
 
           <motion.div className="home-content" {...headContainerAnimation}>
-            <motion.div {...headContentAnimation}>
+            <motion.div {...headTextAnimation}>
               <h1 className="head-text">
-                Let's <br className="xl:block hidden" /> DO IT.
+                LET'S <br className="xl:block hidden" /> DO IT.
               </h1>
             </motion.div>
             <motion.div
               {...headContentAnimation}
-              className="flex flex-col hap-5"
+              className="flex flex-col gap-5"
             >
-              <p className="max-w-md font-normal text-grey-600 text-base">
-                Create you unique Tshirt with out 3D customization tool.{" "}
-                <strong> Unleash your imagination</strong> and define your own
-                style.
+              <p className="max-w-md font-normal text-gray-600 text-base">
+                Create your unique and exclusive shirt with our brand-new 3D
+                customization tool. <strong>Unleash your imagination</strong>{" "}
+                and define your own style.
               </p>
 
               <CustomButton
                 type="filled"
-                title="Customize it"
+                title="Customize It"
                 handleClick={() => (state.intro = false)}
-                customStyles="w-fit px-4 py- 2.5 font-bold text-sm"
+                customStyles="w-fit px-4 py-2.5 font-bold text-sm"
               />
             </motion.div>
           </motion.div>
